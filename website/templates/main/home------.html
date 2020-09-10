@@ -1,0 +1,460 @@
+{% extends 'base.html'%} {%load static%} {%block title %} {%for title in aboutus%}{{title.title_tag}} {%endfor%} {%endblock%} {%block content%} {% include 'nav.html' %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+        {%for list in aboutus %}
+        <div class="section-title">
+            <h2>About</h2>
+            <p>{{list.mainHeading}}</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+                <img src="{{list.image.url}}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                <h3>{{list.heading}} </h3>
+                <p class="font-italic">
+                    {{list.text1}}
+                </p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> {{list.Birthday }}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>Website:</strong> {{list.Website}}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> {{list.Phone}}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>City:</strong> {{list.City}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="icofont-rounded-right"></i> <strong>Age:</strong> {{list.Age}}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> {{list.Degree}}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> {{list.Email}}</li>
+                            <li><i class="icofont-rounded-right"></i> <strong>Freelance:</strong> {{list.Freelance}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>
+                    {{list.text2}}
+                </p>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    <!-- End About Me -->
+
+    <!-- ======= Counts ======= -->
+    <div class="counts container">
+
+        <div class="row">
+            {%for customers in customer %}
+            <div class="col-lg-3 col-md-6">
+                <div class="count-box">
+                    <i class="icofont-simple-smile"></i>
+                    <span data-toggle="counter-up">{{customers.clients}}</span>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                <div class="count-box">
+                    <i class="icofont-document-folder"></i>
+                    <span data-toggle="counter-up">{{customers.projects}}</span>
+                    <p>Projects</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                <div class="count-box">
+                    <i class="icofont-live-support"></i>
+                    <span data-toggle="counter-up">{{customers.hours}}</span>
+                    <p>Hours Of Support</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                <div class="count-box">
+                    <i class="icofont-users-alt-5"></i>
+                    <span data-toggle="counter-up">{{customers.workers}}</span>
+                    <p>Hard Workers</p>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+    <!-- End Counts -->
+
+    <!-- ======= Skills  ======= -->
+    <div class="skills container">
+
+        <div class="section-title">
+            <h2>Skills</h2>
+        </div>
+
+        <div class="row skills-content">
+            {%for skills in skill%}
+            <div class="col-lg-6">
+
+                <div class="progress">
+                    <span class="skill">{{skills.name}}<i class="val">{{skills.percentage}}</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{skills.valuenow}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            {%endfor%}
+
+            <!-- End Skills -->
+
+            <!-- ======= Interests ======= -->
+            <div class="interests container">
+
+                <div class="section-title">
+                    <h2>Interests</h2>
+                </div>
+
+                <div class="row">
+                    {%for intrests in intrest%}
+                    <div class="col-lg-3 col-md-4">
+                        <div class="icon-box mb-4">
+                            <i class="{{intrests.icon}}" style="color:{{intrests.colors}}"></i>
+                            <h3> {{intrests.intrest}}</h3>
+
+                        </div>
+                    </div>
+                    {%endfor%}
+
+                </div>
+                <!-- End Interests -->
+
+                <!-- ======= Testimonials ======= -->
+                <div class="testimonials container">
+
+                    <div class="section-title">
+                        <h2>Testimonials</h2>
+                    </div>
+
+                    <div class="owl-carousel testimonials-carousel">
+                        {%for testimonials in testimonial%}
+                        <div class="testimonial-item">
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i> {{testimonials.description}}
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                            <img src="{{testimonials.imageURL}}" class="testimonial-img" alt="">
+                            <h3>{{testimonials.designation}}</h3>
+                            <h4>{{testimonials.name}}</h4>
+                        </div>
+                        {%endfor%}
+
+                    </div>
+                    <!-- End Testimonials  -->
+
+</section>
+<!-- End About Section -->
+
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Resume</h2>
+            <p>Check My Resume</p>
+        </div>
+
+        <div class="row">
+
+            {%for summaris in summary%}
+            <div class="col-lg-6">
+                <h3 class="resume-title">{{summaris.summary|default_if_none:''}}</h3>
+                <div class="resume-item pb-0">
+                    <h4>{{summaris.summary_title}}</h4>
+                    <p><em>{{summaris.summary_paragraph}}</em></p>
+                    <p>
+                        <ul>
+                            <li>Country: {{summaris.summary_address}}</li>
+                            <li>Language: {{summaris.language}}</li>
+
+
+                        </ul>
+                    </p>
+                </div>
+                {%endfor%} {%for educations in education%}
+                <h3 class="resume-title">{{educations.education|default_if_none:''}}</h3>
+                <div class="resume-item">
+                    <h4>{{educations.education_title}}</h4>
+                    <h5>{{educations.education_date}}</h5>
+                    <p><em>{{educations.education_university}}</em></p>
+                    <p>{{educations.education_paragraph}}</p>
+
+                </div>
+                {%endfor%}
+
+
+            </div>
+
+            <div class="col-lg-6">
+                {%for experiences in experience%}
+                <h3 class="resume-title">{{experiences.experience|default_if_none:''}}</h3>
+                <div class="resume-item">
+                    <h4>{{experiences.experience_title }}</h4>
+                    <h5>{{experiences.experience_year}}</h5>
+                    <p><em>{{experiences.experience_company }} </em></p>
+                    <p>
+
+                        <ul>{% for tag in experiences.tags.all %}
+                            <li>{{tag}}</li>
+                            {% endfor %}
+                        </ul>
+
+                    </p>
+                </div>
+                {%endfor%}
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Resume Section -->
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Services</h2>
+            <p>My Services</p>
+        </div>
+
+        <div class="row">
+            {%for service in services%}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
+                <div class="icon-box">
+                    <div class="icon bx-spin-hover"><i class="{{service.icon}}"></i> </div>
+                    <h4><a href="">{{service.sname}}</a></h4>
+                    <p>{{service.stext}}</p>
+                </div>
+            </div>
+            <span class="iconify" data-icon="mdi:web" data-inline="false"></span> {%endfor%}
+
+
+
+        </div>
+
+    </div>
+</section>
+<!-- End Services Section -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>My Works</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-brand">Branding</li>
+                    <li data-filter=".filter-photo">Photography</li>
+                    <li data-filter=".filter-web">Website</li>
+                    <li data-filter=".filter-print">Printing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio-container">
+            {%for product in brands %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-brand">
+                <div class="portfolio-wrap">
+                    <img src="{{product.imageURL}}" class="card-img-top img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>{{product.brand_title}}</h4>
+                        <p>{{product.brand_subtitle}}</p>
+                        <div class="portfolio-links">
+                            <a href="{{product.imageURL}}" data-gall="portfolioGallery" class="venobox" title="View Large"><i class="bx bx-plus"></i></a>
+                            <a href="{{product.link}}" class="tooltip-test" title="Brand" title="Link"><i class="bx bx-link"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%} {%for product in web %}
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+
+                <div class="portfolio-wrap">
+                    <img class="card-img-top img-fluid" src="{{product.imageURL}}" alt="">
+                    <div class="portfolio-info">
+                        <h4>{{product.web_title}}</h4>
+                        <p>{{product.web_subtitle}}</p>
+                        <div class="portfolio-links">
+                            <a href="{{product.imageURL}}" data-gall="portfolioGallery" class="venobox" title="View Large"><i class="bx bx-plus"></i></a>
+                            <a href="{{product.web_url}}" class="tooltip-test" title="Website" title="Link"><i class="bx bx-link"></i></a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {%endfor%} {%for photo in photogallery %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-photo">
+                <div class="portfolio-wrap">
+
+
+                    <img class="card-img-top img-fluid" src="{{photo.imageURL}}" alt="">
+                    <div class="portfolio-info">
+                        <h4> {{photo.photo_title}}</h4>
+                        <p>{{photo.photo_subtitle}}</p>
+                        <div class="portfolio-links">
+                            <a href="{{photo.imageURL}} " data-gall="portfolioGallery" class="venobox" title="View Large"><i class="bx bx-plus"></i></a>
+                            <a href="{{photo.photo_url}}" data-gall="portfolioDetailsGallery" title="Link"><i class="bx bx-link"></i></a>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            {%endfor%} {%for product in prints %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-print">
+                <div class="portfolio-wrap">
+
+                    <img src="{{product.imageURL}}" class="img-fluid card-img-top" alt="">
+                    <div class="portfolio-info">
+                        <h4>{{product.photo_title}}</h4>
+                        <p>{{product.photo_subtitle}}</p>
+                        <div class="portfolio-links">
+                            <a href="{{product.imageURL}}" data-gall="portfolioGallery" class="venobox" title="View Large"><i class="bx bx-plus"></i></a>
+                            <a href="{{product.print_url}}" data-gall="portfolioDetailsGallery" title="Link"><i class="bx bx-link"></i></a>
+                        </div>
+                    </div>
+                    <!--data-vbtype="iframe" class="venobox"-->
+
+
+
+                </div>
+            </div>
+            {%endfor%}
+
+
+
+
+
+        </div>
+
+    </div>
+</section>
+<!-- End Portfolio Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        {%for item in links %}
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Contact Me</p>
+        </div>
+
+        <div class="row mt-2">
+
+            <div class="col-md-6 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-map"></i>
+                    <h3>My Address</h3>
+                    <p>{{item.addr}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-share-alt"></i>
+                    <h3>Social Profiles</h3>
+                    <div class="social-links">
+                        <!--<a href="#" class="twitter"><i class="icofont-twitter"></i></a>-->
+                        <a href="{{item.fb}}" class="facebook"><i class="icofont-facebook"></i></a>
+                        <a href="{{item.insta}}" class="instagram"><i class="icofont-instagram"></i></a>
+                        <a href="{{item.yotube}}" class="youtube-pla"> <i class="icofont-youtube-play"></i></a>
+                        <a href="{{item.link}}" class="linkedin"><i class="icofont-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-envelope"></i>
+                    <h3>Email Me</h3>
+                    <p>{{item.email}}</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-phone-call"></i>
+                    <h3>Call Me</h3>
+                    <p>{{item.mob}}</p>
+                </div>
+            </div>
+        </div>
+
+        {%endfor%} {%if message_name %}
+        <div>
+            Thanks!! {{message_name}}
+            <p>We received your mail</p>
+        </div>
+        {%else%}
+        <form action="{% url 'thank-you' %}" method="POST" role="form" class="php-email-form mt-4 was-validated">
+            {%csrf_token%}
+            <div class="form-row">
+                <div class="col-md-4 form-group">
+                    <input type="text" name="message-name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <input type="email" class="form-control" name="message-email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <input type="text" class="form-control" name="message-mobile" id="mobile" placeholder="Enter mobile" data-rule="minlen:4" data-msg="Please enter 10 digit mobile number" />
+                    <div class="validate"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="message-subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+        {%endif%}
+
+    </div>
+</section>
+
+{%endblock%}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {%load static%} {%block content%}
+
+<!-- banner  -->
+
+<div class="container-fluid p-0">
+    <!--breadcumb-->
+
+
+
+    <nav id="Subheader" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+    </nav>
+    <div class="container pb-5">
+        <!-- Navigation bar-->
+
+        <div class="page-header animate__animated animate__bounce">
+            {%for tests in lifting %}
+            <h1>
+                <img class="d-block w-100" src="{{tests.imageURL}}" alt="First slide" />
+            </h1>
+            {%endfor%}
+        </div>
+
+        <!-- Small modal -->
+        {%endblock content%}
+    </div>
+</div>
