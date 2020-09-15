@@ -1,5 +1,10 @@
 <!-- ======= Header ======= -->{%load static%}
-<h5 class="p-3 text-right">Welcome {{user}} !! | {{ myDate|date:'Y-m-d H:i' }}</h5>
+<h5 class="p-3 text-left ">Welcome {{user}} !!</h5>
+<h5 class="p-3 mt-3 text-left  text-success">Date : {{date|date:'d:F:Y'}}
+    <br> Time : {{date|date:'g:i:s a'}}</h5>
+<!--{{ myDate|date:'Y-m-d H:i' }} -->
+
+
 <header id="header" class="header-tops">
 
     <div class="container animate__animated animate__fadeInDown">
