@@ -12,15 +12,15 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-
+ 
 
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
-
-
+#from datetime import datetime
+import datetime
+from django.utils import timezone
 
 from django.template import RequestContext
 #@login_required
@@ -117,25 +117,28 @@ def home(request):
     customer=HappyCustomer.objects.all()  
     testimonial=Testimonial.objects.all()
     intrest=Intrest.objects.all()   
-    myDate = datetime.now()
     
+    
+    #myDate = datetime.now()
+     
     # Give a format to the date
     # Displays something like: Aug. 27, 2017, 2:57 p.m.
-    formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
-    
-    context = {'myDate': myDate,'intrest':intrest,'testimonial':testimonial,'customer':customer,'links': links,'brands':brands,'web':web,'skill':skill,'services':services,'summary':summary,'experience':experience,'education':education,'contact':contact,'photogallery':photogallery,'prints':prints,'aboutus':aboutus}
+    #formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+    d=timezone.now() 
+    context = {'date':d,'intrest':intrest,'testimonial':testimonial,'customer':customer,'links': links,'brands':brands,'web':web,'skill':skill,'services':services,'summary':summary,'experience':experience,'education':education,'contact':contact,'photogallery':photogallery,'prints':prints,'aboutus':aboutus}
     return render(request, "index.html", context)
 
  
-
-
-
 
 def portfolioprintview(request):
     prints = Print.objects.all()
     context = {'prints':prints}
     return render(request,'portfolio-details.html',context)
-	
+
+def filter(request):   
+    d=datetime.datetime.now()
+    context = {'date':d}
+    return render(request, "portfolio-details.html", context)
  
 def contact(request):
     
