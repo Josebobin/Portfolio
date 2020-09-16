@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',    
     'website',
     'crispy_forms',
+    'ckeditor',
      
     #'website.apps.WebsiteConfig',
 ]
